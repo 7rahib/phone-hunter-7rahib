@@ -73,6 +73,14 @@ const displayPhoneDetails = phone => {
     else {
         finalRelease = releaseDate;
     }
+    const others = phone?.others;
+    let avaiOthers = ''
+    if (others) {
+        avaiOthers = others;
+    }
+    else {
+        avaiOthers = 'Not Available'
+    }
     div.innerHTML = `
         <div class="row g-0 shadow">
                 <div class="col-md-4 p-5">
@@ -90,12 +98,12 @@ const displayPhoneDetails = phone => {
                     <p class="card-text"><span class="fw-bold">Memory: </span>${phone.mainFeatures.memory}</p>
                     <p class="card-text"><span class="fw-bold">Sensors: </span>${phone.mainFeatures.sensors}</p>
                     <p class="card-text"><span class="fw-bold">Other Features</p>
-                    <p class="card-text"><span class="fw-bold">Bluetooth: </span>${phone.others.Bluetooth}</p>
-                    <p class="card-text"><span class="fw-bold">WLAN: </span>${phone.others.WLAN}</p>
-                    <p class="card-text"><span class="fw-bold">GPS: </span>${phone.others.GPS}</p>
-                    <p class="card-text"><span class="fw-bold">NFC: </span>${phone.others.NFC}</p>
-                    <p class="card-text"><span class="fw-bold">Radio: </span>${phone.others.Radio}</p>
-                    <p class="card-text"><span class="fw-bold">USB: </span>${phone.others.USB}</p>
+                    <p class="card-text"><span class="fw-bold">Bluetooth: </span>${avaiOthers.Bluetooth}</p>
+                    <p class="card-text"><span class="fw-bold">WLAN: </span>${avaiOthers.WLAN}</p>
+                    <p class="card-text"><span class="fw-bold">GPS: </span>${avaiOthers.GPS}</p>
+                    <p class="card-text"><span class="fw-bold">NFC: </span>${avaiOthers.NFC}</p>
+                    <p class="card-text"><span class="fw-bold">Radio: </span>${avaiOthers.Radio}</p>
+                    <p class="card-text"><span class="fw-bold">USB: </span>${avaiOthers.USB}</p>
                     </div>
                 </div>
             </div>
