@@ -50,39 +50,15 @@ const displayPhoneDetails = phone => {
     const div = document.createElement('div')
     phoneDetails.textContent = '';
     div.classList.add('card')
-    const releaseDate = phone.releaseDate;
+    const releaseDate = phone?.releaseDate;
+    let finalRelease = '';
     if (releaseDate == '') {
-
-        div.innerHTML = `
-        <div class="row g-0">
-                <div class="col-md-4 p-5">
-                    <img src="${phone.image}" class="img-fluid mx-auto" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                    <h5 class="card-title">${phone.brand}</h5>
-                    <h5 class="card-title">${phone.name}</h5>
-                    <p class="card-text"><span class="fw-bold">Release Date: </span>Coming Soon!!!</p>
-                    <p class="card-text"><span class="fw-bold">Main Features</p>
-                    <p class="card-text"><span class="fw-bold">Storage: </span>${phone.mainFeatures.storage}</p>
-                    <p class="card-text"><span class="fw-bold">Display: </span>${phone.mainFeatures.displaySize}</p>
-                    <p class="card-text"><span class="fw-bold">Chipset: </span>${phone.mainFeatures.chipSet}</p>
-                    <p class="card-text"><span class="fw-bold">Memory: </span>${phone.mainFeatures.memory}</p>
-                    <p class="card-text"><span class="fw-bold">Sensors: </span>${phone.mainFeatures.sensors}</p>
-                    <p class="card-text"><span class="fw-bold">Bluetooth: </span>${phone.others.Bluetooth}</p>
-                    <p class="card-text"><span class="fw-bold">Other Features</p>
-                    <p class="card-text"><span class="fw-bold">WLAN: </span>${phone.others.WLAN}</p>
-                    <p class="card-text"><span class="fw-bold">GPS: </span>${phone.others.GPS}</p>
-                    <p class="card-text"><span class="fw-bold">NFC: </span>${phone.others.NFC}</p>
-                    <p class="card-text"><span class="fw-bold">Radio: </span>${phone.others.Radio}</p>
-                    <p class="card-text"><span class="fw-bold">USB: </span>${phone.others.USB}</p>
-                    </div>
-                </div>
-            </div>
-        `
+        finalRelease = "Coming Soon";
     }
     else {
-        div.innerHTML = `
+        finalRelease = releaseDate;
+    }
+    div.innerHTML = `
         <div class="row g-0">
                 <div class="col-md-4 p-5">
                     <img src="${phone.image}" class="img-fluid mx-auto" alt="...">
@@ -91,7 +67,7 @@ const displayPhoneDetails = phone => {
                     <div class="card-body">
                     <h5 class="card-title">${phone.brand}</h5>
                     <h5 class="card-title">${phone.name}</h5>
-                    <p class="card-text"><span class="fw-bold">Release Date: </span>${releaseDate}</p>
+                    <p class="card-text"><span class="fw-bold">Release Date: </span>${finalRelease}</p>
                     <p class="card-text"><span class="fw-bold">Main Features</p>
                     <p class="card-text"><span class="fw-bold">Storage: </span>${phone.mainFeatures.storage}</p>
                     <p class="card-text"><span class="fw-bold">Display: </span>${phone.mainFeatures.displaySize}</p>
@@ -109,7 +85,6 @@ const displayPhoneDetails = phone => {
                 </div>
             </div>
         `
-    }
 
     phoneDetails.appendChild(div)
 }
