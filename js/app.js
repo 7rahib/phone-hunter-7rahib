@@ -18,7 +18,8 @@ const searchFood = () => {
 const displaySearchResult = datas => {
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
-    datas.forEach(data => {
+    const items = datas.slice(0, 20)
+    items.forEach(data => {
         const div = document.createElement('div')
         div.classList.add('col');
         div.innerHTML = `
