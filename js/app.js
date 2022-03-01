@@ -1,14 +1,12 @@
+
+
 const searchFood = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     searchField.value = "";
+    document.getElementById('error-message').style.display = 'none';
     if (searchText == '') {
-        const phoneDetails = document.getElementById('phone-details')
-        const div = document.createElement('div');
-        div.innerHTML = `
-        <h1 class="text-danger text-center">Please Give a name</h1>
-        `;
-        phoneDetails.appendChild(div);
+        document.getElementById('error-message').style.display = 'block';
     }
     else {
         const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
@@ -16,9 +14,7 @@ const searchFood = () => {
             .then(res => res.json())
             .then(data => displaySearchResult(data.data))
     }
-
 }
-
 const displaySearchResult = datas => {
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
