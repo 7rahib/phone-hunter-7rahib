@@ -1,9 +1,16 @@
+/* body background color */
 .bg{
-    background-color: #dcdde1;
+    background-color: #9EBABF;
 }
-h1{
-    color: #353b48;
+/* Header Color */
+.header-title{
+    color: #df4a59;
 }
-#error-message{
+/* hiding error message of no input given */
+#no-input-error-message{
+    display: none;
+}
+/* hiding error message of wrong input given */
+#wrong-input-error-message{
     display: none;
 }
